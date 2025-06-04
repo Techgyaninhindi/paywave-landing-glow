@@ -1,5 +1,4 @@
-
-import { ArrowRight, Shield, CreditCard, Zap, Globe, Users, CheckCircle, Star, Menu, X, TrendingUp, Lock, Clock, BarChart, Smartphone, Headphones, Award, DollarSign, Target, Layers } from 'lucide-react';
+import { ArrowRight, Shield, CreditCard, Zap, Globe, Users, CheckCircle, Star, Menu, X, TrendingUp, Lock, Clock, BarChart, Smartphone, Headphones, Award, DollarSign, Target, Layers, RefreshCw, Settings, Wifi, Database } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -42,6 +41,42 @@ const Index = () => {
       title: "Mobile First",
       description: "Optimized mobile checkout with one-tap payments and biometric auth.",
       color: "from-pink-500 to-rose-600"
+    },
+    {
+      icon: <RefreshCw className="w-8 h-8 text-cyan-600" />,
+      title: "Auto-Retry Logic",
+      description: "Smart retry mechanisms that automatically recover failed transactions.",
+      color: "from-cyan-500 to-blue-600"
+    },
+    {
+      icon: <Settings className="w-8 h-8 text-yellow-600" />,
+      title: "Easy Integration",
+      description: "Simple APIs and SDKs for seamless integration in minutes, not days.",
+      color: "from-yellow-500 to-orange-600"
+    },
+    {
+      icon: <Wifi className="w-8 h-8 text-teal-600" />,
+      title: "Offline Payments",
+      description: "Continue processing payments even during network interruptions.",
+      color: "from-teal-500 to-green-600"
+    },
+    {
+      icon: <Database className="w-8 h-8 text-red-600" />,
+      title: "Data Insights",
+      description: "Comprehensive transaction data and customer behavior analytics.",
+      color: "from-red-500 to-pink-600"
+    },
+    {
+      icon: <Users className="w-8 h-8 text-emerald-600" />,
+      title: "Multi-User Access",
+      description: "Team collaboration with role-based permissions and access controls.",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      icon: <Target className="w-8 h-8 text-violet-600" />,
+      title: "Smart Routing",
+      description: "AI-powered payment routing for maximum success rates and lower costs.",
+      color: "from-violet-500 to-purple-600"
     }
   ];
 
@@ -182,7 +217,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {features.map((feature, index) => (
               <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-white to-gray-50 hover:scale-105 transform">
                 <CardContent className="p-8 text-center relative overflow-hidden">
