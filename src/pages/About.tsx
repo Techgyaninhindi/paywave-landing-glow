@@ -1,7 +1,7 @@
-
 import { Users, Target, Award, Zap, Shield, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import Navigation from '@/components/Navigation';
 
 const About = () => {
   const team = [
@@ -56,6 +56,8 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
+      <Navigation />
+
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
@@ -271,6 +273,73 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Enhanced Footer */}
+      <footer id="contact" className="bg-gray-900 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+            <div className="md:col-span-2">
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
+                PayGate
+              </h3>
+              <p className="text-gray-400 mb-6 text-lg leading-relaxed">
+                The most powerful payment gateway for modern businesses. Accept payments everywhere, instantly.
+              </p>
+              <div className="flex items-center space-x-4">
+                <div className="bg-purple-600 p-2 rounded-lg">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-semibold">SOC 2 Type II Certified</div>
+                  <div className="text-sm text-gray-400">Enterprise-grade security</div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Product</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Features</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Pricing</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">API Documentation</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Integrations</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Security</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Company</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">About Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Careers</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Blog</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Press</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Partners</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Support</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Developer Docs</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Status Page</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Contact Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Community</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 mb-4 md:mb-0">&copy; 2024 PayGate. All rights reserved.</p>
+            <div className="flex items-center space-x-6 text-gray-400 text-sm">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white transition-colors">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
