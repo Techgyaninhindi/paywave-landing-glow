@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Clock, Send, Shield } from 'lucide-react';
+
+import { Mail, Phone, MapPin, Clock, Send, Shield, ChevronDown, ChevronUp, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,6 +16,8 @@ const Contact = () => {
     message: ''
   });
 
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -29,30 +32,77 @@ const Contact = () => {
     // Handle form submission here
   };
 
+  const toggleFaq = (index: number) => {
+    setExpandedFaq(expandedFaq === index ? null : index);
+  };
+
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6 text-purple-600" />,
+      icon: <Mail className="w-8 h-8 text-white" />,
       title: "Email",
       content: "support@paygate.com",
-      description: "We'll respond within 24 hours"
+      description: "We'll respond within 24 hours",
+      gradient: "from-blue-500 to-purple-600",
+      bgColor: "bg-blue-500"
     },
     {
-      icon: <Phone className="w-6 h-6 text-purple-600" />,
+      icon: <Phone className="w-8 h-8 text-white" />,
       title: "Phone",
       content: "+1 (555) 123-4567",
-      description: "Mon-Fri, 9am-6pm EST"
+      description: "Mon-Fri, 9am-6pm EST",
+      gradient: "from-green-500 to-emerald-600",
+      bgColor: "bg-green-500"
     },
     {
-      icon: <MapPin className="w-6 h-6 text-purple-600" />,
+      icon: <MapPin className="w-8 h-8 text-white" />,
       title: "Office",
-      content: "123 Payment Street, San Francisco, CA 94102",
-      description: "Visit us in person"
+      content: "123 Payment Street",
+      description: "San Francisco, CA 94102",
+      gradient: "from-orange-500 to-red-600",
+      bgColor: "bg-orange-500"
     },
     {
-      icon: <Clock className="w-6 h-6 text-purple-600" />,
+      icon: <Clock className="w-8 h-8 text-white" />,
       title: "Support Hours",
       content: "24/7 Available",
-      description: "Round-the-clock assistance"
+      description: "Round-the-clock assistance",
+      gradient: "from-purple-500 to-pink-600",
+      bgColor: "bg-purple-500"
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: "How long does it take to integrate PayGate?",
+      answer: "Most developers can integrate PayGate in under an hour using our comprehensive APIs and documentation. Our SDK libraries support all major programming languages including JavaScript, Python, PHP, Ruby, and more."
+    },
+    {
+      question: "What are your transaction fees?",
+      answer: "Our fees start at 2.9% per transaction for the Starter plan, with volume discounts available. Pro plans start at 2.7% and Enterprise customers can get custom pricing based on their transaction volume. No setup fees or monthly minimums."
+    },
+    {
+      question: "Do you support international payments?",
+      answer: "Yes! PayGate supports payments in 150+ currencies with local payment methods in major markets. We handle currency conversion automatically and comply with local regulations including PSD2, GDPR, and other regional requirements."
+    },
+    {
+      question: "How secure is PayGate?",
+      answer: "PayGate is PCI DSS Level 1 compliant with bank-level security. We use 256-bit SSL encryption, advanced fraud detection, 3D Secure authentication, and conduct regular security audits. Your customers' data is always protected."
+    },
+    {
+      question: "What payment methods do you support?",
+      answer: "We support all major credit and debit cards (Visa, Mastercard, American Express), digital wallets (Apple Pay, Google Pay, PayPal), bank transfers, SEPA, and Buy Now Pay Later options like Klarna and Afterpay."
+    },
+    {
+      question: "Do you provide test environments?",
+      answer: "Yes, we provide a comprehensive sandbox environment that mirrors our production system. You can test all features, payment methods, and webhooks without processing real transactions. Test data and API keys are provided instantly."
+    },
+    {
+      question: "What kind of reporting do you offer?",
+      answer: "We offer real-time dashboards, detailed transaction reports, revenue analytics, customer insights, dispute management, and custom reporting. You can export data in multiple formats and set up automated reports."
+    },
+    {
+      question: "How do refunds and disputes work?",
+      answer: "Refunds can be processed instantly through our dashboard or API. We provide automated dispute management, chargeback protection, and detailed documentation to help you win disputes. Our team assists with complex cases."
     }
   ];
 
@@ -180,19 +230,20 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
+                  <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 overflow-hidden">
+                    <div className={`h-2 bg-gradient-to-r ${info.gradient}`}></div>
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0">
+                        <div className={`flex-shrink-0 p-3 rounded-full ${info.bgColor}`}>
                           {info.icon}
                         </div>
-                        <div>
+                        <div className="flex-1">
                           <h3 className="text-lg font-semibold text-gray-900 mb-1">
                             {info.title}
                           </h3>
-                          <p className="text-purple-600 font-medium mb-1">
+                          <p className="text-purple-600 font-medium mb-1 text-sm">
                             {info.content}
                           </p>
                           <p className="text-gray-600 text-sm">
@@ -209,7 +260,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Expandable FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -217,58 +268,39 @@ const Contact = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-xl text-gray-600">
-              Quick answers to common questions
+              Find answers to common questions about PayGate
             </p>
           </div>
 
-          <div className="space-y-8">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  How long does it take to integrate PayGate?
-                </h3>
-                <p className="text-gray-600">
-                  Most developers can integrate PayGate in under an hour using our comprehensive APIs and documentation. 
-                  Our SDK libraries support all major programming languages.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  What are your transaction fees?
-                </h3>
-                <p className="text-gray-600">
-                  Our fees start at 2.9% per transaction for the Starter plan, with volume discounts available. 
-                  Enterprise customers can get custom pricing based on their transaction volume.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Do you support international payments?
-                </h3>
-                <p className="text-gray-600">
-                  Yes! PayGate supports payments in 150+ currencies with local payment methods in major markets. 
-                  We handle currency conversion and comply with local regulations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  How secure is PayGate?
-                </h3>
-                <p className="text-gray-600">
-                  PayGate is PCI DSS Level 1 compliant with bank-level security. We use 256-bit SSL encryption 
-                  and advanced fraud detection to keep your payments secure.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="space-y-4">
+            {faqItems.map((item, index) => (
+              <Card key={index} className="border border-gray-200 hover:border-purple-300 transition-colors">
+                <CardContent className="p-0">
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                  >
+                    <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                      {item.question}
+                    </h3>
+                    {expandedFaq === index ? (
+                      <ChevronUp className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                    )}
+                  </button>
+                  {expandedFaq === index && (
+                    <div className="px-6 pb-6 pt-0">
+                      <div className="border-t border-gray-100 pt-4">
+                        <p className="text-gray-600 leading-relaxed">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -296,7 +328,7 @@ const Contact = () => {
       {/* Enhanced Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
             <div className="md:col-span-2">
               <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
                 PayGate
@@ -305,12 +337,19 @@ const Contact = () => {
                 The most powerful payment gateway for modern businesses. Accept payments everywhere, instantly.
               </p>
               <div className="flex items-center space-x-4">
-                <div className="bg-purple-600 p-2 rounded-lg">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-semibold">SOC 2 Type II Certified</div>
-                  <div className="text-sm text-gray-400">Enterprise-grade security</div>
+                <div className="flex space-x-3">
+                  <div className="bg-purple-600 p-2 rounded-lg hover:bg-purple-700 transition-colors cursor-pointer">
+                    <Facebook className="w-5 h-5" />
+                  </div>
+                  <div className="bg-blue-600 p-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
+                    <Twitter className="w-5 h-5" />
+                  </div>
+                  <div className="bg-pink-600 p-2 rounded-lg hover:bg-pink-700 transition-colors cursor-pointer">
+                    <Instagram className="w-5 h-5" />
+                  </div>
+                  <div className="bg-blue-700 p-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
+                    <Linkedin className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -345,6 +384,17 @@ const Contact = () => {
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Status Page</a></li>
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Contact Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Community</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Best Hostings</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Bluehost</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">HostGator</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">SiteGround</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">GoDaddy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Hostinger</a></li>
               </ul>
             </div>
           </div>

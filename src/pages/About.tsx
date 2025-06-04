@@ -1,4 +1,5 @@
-import { Users, Target, Award, Zap, Shield, Globe } from 'lucide-react';
+
+import { Users, Target, Award, Zap, Shield, Globe, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
@@ -51,6 +52,39 @@ const About = () => {
       icon: <Globe className="w-8 h-8 text-purple-600" />,
       title: "Global Impact",
       description: "Building payment infrastructure that connects the world."
+    }
+  ];
+
+  const journeyEvents = [
+    {
+      year: "2020",
+      title: "Company Founded",
+      description: "PayGate was founded with a vision to simplify payments for businesses worldwide.",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      year: "2021",
+      title: "First Million in Transactions",
+      description: "Reached our first million dollars in payment volume processed.",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      year: "2022",
+      title: "Global Expansion",
+      description: "Expanded to support payments in 50+ countries with local payment methods.",
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      year: "2023",
+      title: "Enterprise Platform Launch",
+      description: "Launched enterprise-grade features and achieved $10B in annual payment volume.",
+      gradient: "from-orange-500 to-red-500"
+    },
+    {
+      year: "2024",
+      title: "1 Million Merchants",
+      description: "Reached 1 million merchants and $50B in cumulative payment volume.",
+      gradient: "from-indigo-500 to-purple-500"
     }
   ];
 
@@ -193,62 +227,52 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Unique Timeline Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Our Journey
             </h2>
-            <p className="text-xl text-gray-600">
-              Key milestones in our growth story
+            <p className="text-xl text-purple-100">
+              Key milestones that shaped our story
             </p>
           </div>
 
-          <div className="space-y-12">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 w-4 h-4 bg-purple-600 rounded-full"></div>
-              <div className="ml-8">
-                <div className="text-purple-600 font-semibold">2020</div>
-                <h3 className="text-xl font-bold text-gray-900">Company Founded</h3>
-                <p className="text-gray-600">PayGate was founded with a vision to simplify payments for businesses worldwide.</p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="flex-shrink-0 w-4 h-4 bg-purple-600 rounded-full"></div>
-              <div className="ml-8">
-                <div className="text-purple-600 font-semibold">2021</div>
-                <h3 className="text-xl font-bold text-gray-900">First Million in Transactions</h3>
-                <p className="text-gray-600">Reached our first million dollars in payment volume processed.</p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="flex-shrink-0 w-4 h-4 bg-purple-600 rounded-full"></div>
-              <div className="ml-8">
-                <div className="text-purple-600 font-semibold">2022</div>
-                <h3 className="text-xl font-bold text-gray-900">Global Expansion</h3>
-                <p className="text-gray-600">Expanded to support payments in 50+ countries with local payment methods.</p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="flex-shrink-0 w-4 h-4 bg-purple-600 rounded-full"></div>
-              <div className="ml-8">
-                <div className="text-purple-600 font-semibold">2023</div>
-                <h3 className="text-xl font-bold text-gray-900">Enterprise Platform Launch</h3>
-                <p className="text-gray-600">Launched enterprise-grade features and achieved $10B in annual payment volume.</p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="flex-shrink-0 w-4 h-4 bg-purple-600 rounded-full"></div>
-              <div className="ml-8">
-                <div className="text-purple-600 font-semibold">2024</div>
-                <h3 className="text-xl font-bold text-gray-900">1 Million Merchants</h3>
-                <p className="text-gray-600">Reached 1 million merchants and $50B in cumulative payment volume.</p>
-              </div>
+          <div className="relative">
+            {/* Central Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-400 via-blue-400 to-purple-400 rounded-full"></div>
+            
+            <div className="space-y-16">
+              {journeyEvents.map((event, index) => (
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} relative`}>
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-purple-400 z-10 shadow-lg"></div>
+                  
+                  {/* Content Card */}
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                    <Card className={`bg-gradient-to-r ${event.gradient} p-1 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-300`}>
+                      <div className="bg-white rounded-lg p-6 h-full">
+                        <div className="flex items-center mb-4">
+                          <div className={`text-2xl font-bold bg-gradient-to-r ${event.gradient} bg-clip-text text-transparent`}>
+                            {event.year}
+                          </div>
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                          {event.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {event.description}
+                        </p>
+                      </div>
+                    </Card>
+                  </div>
+                  
+                  {/* Empty space for alternating layout */}
+                  <div className="w-5/12"></div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -277,7 +301,7 @@ const About = () => {
       {/* Enhanced Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
             <div className="md:col-span-2">
               <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
                 PayGate
@@ -286,12 +310,19 @@ const About = () => {
                 The most powerful payment gateway for modern businesses. Accept payments everywhere, instantly.
               </p>
               <div className="flex items-center space-x-4">
-                <div className="bg-purple-600 p-2 rounded-lg">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-semibold">SOC 2 Type II Certified</div>
-                  <div className="text-sm text-gray-400">Enterprise-grade security</div>
+                <div className="flex space-x-3">
+                  <div className="bg-purple-600 p-2 rounded-lg hover:bg-purple-700 transition-colors cursor-pointer">
+                    <Facebook className="w-5 h-5" />
+                  </div>
+                  <div className="bg-blue-600 p-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
+                    <Twitter className="w-5 h-5" />
+                  </div>
+                  <div className="bg-pink-600 p-2 rounded-lg hover:bg-pink-700 transition-colors cursor-pointer">
+                    <Instagram className="w-5 h-5" />
+                  </div>
+                  <div className="bg-blue-700 p-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
+                    <Linkedin className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -326,6 +357,17 @@ const About = () => {
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Status Page</a></li>
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Contact Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Community</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Best Hostings</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Bluehost</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">HostGator</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">SiteGround</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">GoDaddy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Hostinger</a></li>
               </ul>
             </div>
           </div>
