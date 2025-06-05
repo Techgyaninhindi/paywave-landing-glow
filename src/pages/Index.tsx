@@ -104,10 +104,11 @@ const Index = () => {
   ];
 
   const testimonials = [
+    // First row (left to right)
     {
       name: "Sarah Johnson",
       company: "TechStart Inc.",
-      content: "PayGate increased our conversion rates by 45% and reduced payment failures to near zero. The integration was seamless.",
+      content: "PayGate increased our conversion rates by 45% and reduced payment failures to near zero.",
       rating: 5,
       avatar: "SJ",
       role: "CEO"
@@ -115,7 +116,7 @@ const Index = () => {
     {
       name: "Michael Chen",
       company: "Global Commerce",
-      content: "The best payment gateway we've used. Customer support is exceptional and the analytics are incredibly detailed.",
+      content: "The best payment gateway we've used. Customer support is exceptional.",
       rating: 5,
       avatar: "MC",
       role: "CTO"
@@ -123,10 +124,147 @@ const Index = () => {
     {
       name: "Emily Rodriguez",
       company: "Fashion Forward",
-      content: "International payments became effortless. We expanded to 15 new markets within 3 months of switching to PayGate.",
+      content: "International payments became effortless. We expanded to 15 new markets.",
       rating: 5,
       avatar: "ER",
       role: "Head of Operations"
+    },
+    {
+      name: "David Kim",
+      company: "EcomPro",
+      content: "Seamless integration and amazing analytics dashboard helped us optimize.",
+      rating: 5,
+      avatar: "DK",
+      role: "Founder"
+    },
+    {
+      name: "Lisa Wang",
+      company: "StartupX",
+      content: "Revolutionary payment processing with unmatched security features.",
+      rating: 5,
+      avatar: "LW",
+      role: "Product Manager"
+    },
+    {
+      name: "James Wilson",
+      company: "TechFlow",
+      content: "Incredible speed and reliability. Our customers love the checkout experience.",
+      rating: 5,
+      avatar: "JW",
+      role: "Engineering Lead"
+    },
+    {
+      name: "Maria Garcia",
+      company: "RetailHub",
+      content: "Multi-currency support opened new markets for our business instantly.",
+      rating: 5,
+      avatar: "MG",
+      role: "COO"
+    },
+    {
+      name: "Alex Thompson",
+      company: "DigitalCorp",
+      content: "Outstanding fraud protection and real-time monitoring capabilities.",
+      rating: 5,
+      avatar: "AT",
+      role: "Security Officer"
+    },
+    {
+      name: "Nina Patel",
+      company: "GrowthLab",
+      content: "Best-in-class API documentation made integration a breeze.",
+      rating: 5,
+      avatar: "NP",
+      role: "Developer"
+    },
+    {
+      name: "Robert Brown",
+      company: "ScaleUp",
+      content: "Exceptional uptime and performance even during high traffic periods.",
+      rating: 5,
+      avatar: "RB",
+      role: "CTO"
+    },
+    // Second row (right to left)
+    {
+      name: "Jennifer Lee",
+      company: "InnovateCorp",
+      content: "Smart routing increased our success rates by 30% instantly.",
+      rating: 5,
+      avatar: "JL",
+      role: "VP Finance"
+    },
+    {
+      name: "Kevin Davis",
+      company: "MarketPlace",
+      content: "Mobile-first design boosted our mobile conversions significantly.",
+      rating: 5,
+      avatar: "KD",
+      role: "Mobile Lead"
+    },
+    {
+      name: "Sophie Miller",
+      company: "CloudTech",
+      content: "Advanced analytics provide insights we never had before.",
+      rating: 5,
+      avatar: "SM",
+      role: "Data Analyst"
+    },
+    {
+      name: "Ryan Carter",
+      company: "NextGen",
+      content: "Cryptocurrency support helped us tap into new customer segments.",
+      rating: 5,
+      avatar: "RC",
+      role: "Blockchain Lead"
+    },
+    {
+      name: "Amanda Foster",
+      company: "TrendyShop",
+      content: "Buy now, pay later integration boosted our average order value.",
+      rating: 5,
+      avatar: "AF",
+      role: "E-commerce Manager"
+    },
+    {
+      name: "Daniel Green",
+      company: "FinanceFlow",
+      content: "Subscription billing features streamlined our recurring revenue.",
+      rating: 5,
+      avatar: "DG",
+      role: "Revenue Manager"
+    },
+    {
+      name: "Rachel Adams",
+      company: "GlobalPay",
+      content: "Compliance features made international expansion worry-free.",
+      rating: 5,
+      avatar: "RA",
+      role: "Compliance Officer"
+    },
+    {
+      name: "Mark Johnson",
+      company: "PayTech",
+      content: "Webhook reliability is outstanding - never missed a notification.",
+      rating: 5,
+      avatar: "MJ",
+      role: "Integration Specialist"
+    },
+    {
+      name: "Laura White",
+      company: "SmartCommerce",
+      content: "Custom branding options maintain our brand consistency perfectly.",
+      rating: 5,
+      avatar: "LW2",
+      role: "Brand Manager"
+    },
+    {
+      name: "Chris Evans",
+      company: "PaySolutions",
+      content: "24/7 support team resolved our queries within minutes every time.",
+      rating: 5,
+      avatar: "CE",
+      role: "Operations Director"
     }
   ];
 
@@ -140,6 +278,10 @@ const Index = () => {
     { name: "Salesforce", logo: "☁️" },
     { name: "HubSpot", logo: "🔗" }
   ];
+
+  // Split testimonials into two rows
+  const firstRowTestimonials = testimonials.slice(0, 10);
+  const secondRowTestimonials = testimonials.slice(10, 20);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
@@ -217,23 +359,23 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {features.map((feature, index) => (
               <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-white to-gray-50 hover:scale-105 transform">
-                <CardContent className="p-8 text-center relative overflow-hidden">
+                <CardContent className="p-4 md:p-8 text-center relative overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                   <div className="relative z-10">
-                    <div className="mb-6 flex justify-center">
-                      <div className={`p-4 rounded-2xl bg-gradient-to-br ${feature.color} shadow-lg`}>
+                    <div className="mb-4 md:mb-6 flex justify-center">
+                      <div className={`p-2 md:p-4 rounded-2xl bg-gradient-to-br ${feature.color} shadow-lg`}>
                         <div className="text-white">
                           {feature.icon}
                         </div>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -451,11 +593,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Testimonials Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
+      {/* Enhanced Testimonials Section with Animations */}
+      <section className="py-24 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-3 py-1 bg-yellow-100 rounded-full text-sm font-medium text-yellow-800 mb-4">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-full text-sm font-medium text-yellow-800 mb-4">
               <Star className="w-4 h-4 mr-2" />
               Customer Stories
             </div>
@@ -467,31 +609,66 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-                <CardContent className="p-8">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-6 italic text-lg leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                      {testimonial.avatar}
-                    </div>
-                    <div>
-                      <div className="font-bold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.role}</div>
-                      <div className="text-sm text-purple-600 font-medium">{testimonial.company}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="space-y-8">
+            {/* First row - Left to Right Animation */}
+            <div className="relative">
+              <div className="flex animate-scroll-left space-x-6">
+                {[...firstRowTestimonials, ...firstRowTestimonials].map((testimonial, index) => (
+                  <Card key={index} className="flex-shrink-0 w-80 bg-white hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-gray-700 mb-6 italic leading-relaxed">
+                        "{testimonial.content}"
+                      </p>
+                      <div className="flex items-center">
+                        <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3 text-sm">
+                          {testimonial.avatar}
+                        </div>
+                        <div>
+                          <div className="font-bold text-gray-900 text-sm">{testimonial.name}</div>
+                          <div className="text-xs text-gray-600">{testimonial.role}</div>
+                          <div className="text-xs text-purple-600 font-medium">{testimonial.company}</div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Second row - Right to Left Animation */}
+            <div className="relative">
+              <div className="flex animate-scroll-right space-x-6">
+                {[...secondRowTestimonials, ...secondRowTestimonials].map((testimonial, index) => (
+                  <Card key={index} className="flex-shrink-0 w-80 bg-white hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-gray-700 mb-6 italic leading-relaxed">
+                        "{testimonial.content}"
+                      </p>
+                      <div className="flex items-center">
+                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3 text-sm">
+                          {testimonial.avatar}
+                        </div>
+                        <div>
+                          <div className="font-bold text-gray-900 text-sm">{testimonial.name}</div>
+                          <div className="text-xs text-gray-600">{testimonial.role}</div>
+                          <div className="text-xs text-blue-600 font-medium">{testimonial.company}</div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -538,10 +715,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Footer */}
+      {/* Enhanced Footer - Updated for Mobile */}
       <footer id="contact" className="bg-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
             <div className="md:col-span-2">
               <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
                 PayGate
@@ -550,36 +727,45 @@ const Index = () => {
                 The most powerful payment gateway for modern businesses. Accept payments everywhere, instantly.
               </p>
               <div className="flex items-center space-x-4">
-                <div className="bg-purple-600 p-2 rounded-lg">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-semibold">SOC 2 Type II Certified</div>
-                  <div className="text-sm text-gray-400">Enterprise-grade security</div>
+                <div className="flex space-x-3">
+                  <div className="bg-purple-600 p-2 rounded-lg hover:bg-purple-700 transition-colors cursor-pointer">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <div className="bg-blue-600 p-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div className="bg-pink-600 p-2 rounded-lg hover:bg-pink-700 transition-colors cursor-pointer">
+                    <Star className="w-5 h-5" />
+                  </div>
+                  <div className="bg-blue-700 p-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
+                    <Shield className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
             </div>
             
-            <div>
-              <h4 className="font-bold mb-6 text-lg">Product</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">API Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Integrations</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Security</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-6 text-lg">Company</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Press</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Partners</a></li>
-              </ul>
+            <div className="md:col-span-2 grid grid-cols-2 gap-8">
+              <div>
+                <h4 className="font-bold mb-6 text-lg">Product</h4>
+                <ul className="space-y-3 text-gray-400">
+                  <li><a href="/features" className="hover:text-white transition-colors hover:underline">Features</a></li>
+                  <li><a href="#pricing" className="hover:text-white transition-colors hover:underline">Pricing</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors hover:underline">API Documentation</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors hover:underline">Integrations</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors hover:underline">Security</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-bold mb-6 text-lg">Company</h4>
+                <ul className="space-y-3 text-gray-400">
+                  <li><a href="/about" className="hover:text-white transition-colors hover:underline">About Us</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors hover:underline">Careers</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors hover:underline">Blog</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors hover:underline">Press</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors hover:underline">Partners</a></li>
+                </ul>
+              </div>
             </div>
             
             <div>
@@ -588,8 +774,19 @@ const Index = () => {
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Help Center</a></li>
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Developer Docs</a></li>
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Status Page</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Contact Us</a></li>
+                <li><a href="/contact" className="hover:text-white transition-colors hover:underline">Contact Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors hover:underline">Community</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Best Hostings</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Bluehost</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">HostGator</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">SiteGround</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">GoDaddy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors hover:underline">Hostinger</a></li>
               </ul>
             </div>
           </div>
@@ -597,9 +794,9 @@ const Index = () => {
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 mb-4 md:mb-0">&copy; 2024 PayGate. All rights reserved.</p>
             <div className="flex items-center space-x-6 text-gray-400 text-sm">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Cookies</a>
+              <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="/cookies" className="hover:text-white transition-colors">Cookies</a>
             </div>
           </div>
         </div>
