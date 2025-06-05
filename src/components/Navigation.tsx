@@ -69,7 +69,6 @@ const Navigation = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-purple-600 p-2 relative z-50"
-              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -77,81 +76,79 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <div className={`md:hidden fixed inset-0 z-40 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
-        {/* Backdrop */}
-        <div 
-          className="absolute inset-0 bg-black bg-opacity-50" 
-          onClick={() => setIsMenuOpen(false)}
-        ></div>
-        
-        {/* Menu Panel */}
-        <div className="absolute top-0 right-0 h-full w-80 bg-white shadow-xl">
-          <div className="pt-20 px-6 pb-6 h-full overflow-y-auto">
-            {/* Main Navigation */}
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Navigation</h3>
-              <div className="space-y-2">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                      isActive(item.href)
-                        ? 'text-purple-600 bg-purple-50'
-                        : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+      {/* Mobile Navigation Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => setIsMenuOpen(false)}></div>
+          <div className={`absolute top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}>
+            <div className="pt-20 px-6 pb-6 h-full overflow-y-auto">
+              {/* Main Navigation */}
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Navigation</h3>
+                <div className="space-y-2">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                        isActive(item.href)
+                          ? 'text-purple-600 bg-purple-50'
+                          : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Legal Links */}
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Legal</h3>
-              <div className="space-y-2">
-                {legalItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-purple-600 hover:bg-gray-50 transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+              {/* Legal Links */}
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Legal</h3>
+                <div className="space-y-2">
+                  {legalItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-purple-600 hover:bg-gray-50 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Action Buttons */}
-            <div className="space-y-3 pt-6 border-t border-gray-200">
-              <Button 
-                variant="outline" 
-                className="w-full justify-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Sign In
-              </Button>
-              <Button 
-                className="w-full justify-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Get Started
-              </Button>
-            </div>
+              {/* Action Buttons */}
+              <div className="space-y-3 pt-6 border-t border-gray-200">
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Sign In
+                </Button>
+                <Button 
+                  className="w-full justify-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started
+                </Button>
+              </div>
 
-            {/* Additional Info */}
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <p className="text-sm text-gray-500 text-center">
-                © 2024 PayGate. All rights reserved.
-              </p>
+              {/* Additional Info */}
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <p className="text-sm text-gray-500 text-center">
+                  © 2024 PayGate. All rights reserved.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
