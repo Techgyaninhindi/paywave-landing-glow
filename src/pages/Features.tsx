@@ -1,5 +1,5 @@
 
-import { Shield, Zap, Globe, CreditCard, BarChart3, Code, Smartphone, Users, CheckCircle, Lock, Clock, Star, Award, Headphones, Database, Settings, Monitor } from 'lucide-react';
+import { Shield, Zap, Globe, CreditCard, BarChart3, Code, Smartphone, Users, CheckCircle, Lock, Clock, Star, Award, Headphones, Database, Settings, Monitor, ArrowRight, Play } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
@@ -7,175 +7,201 @@ import Navigation from '@/components/Navigation';
 const Features = () => {
   const mainFeatures = [
     {
-      icon: <Shield className="w-12 h-12 text-purple-600" />,
-      title: "Advanced Security",
-      description: "Bank-level security with 256-bit SSL encryption, PCI DSS Level 1 compliance, and fraud detection.",
+      icon: <Shield className="w-8 h-8 text-blue-500" />,
+      title: "Bank-Level Security",
+      description: "Military-grade encryption with PCI DSS Level 1 compliance and real-time fraud detection.",
       details: [
+        "256-bit SSL encryption",
         "Real-time fraud monitoring",
         "3D Secure authentication",
-        "Data encryption at rest and in transit",
-        "Regular security audits"
+        "GDPR compliant"
       ],
-      gradient: "from-red-50 to-pink-50",
-      borderColor: "border-red-200"
+      color: "blue"
     },
     {
-      icon: <Zap className="w-12 h-12 text-blue-600" />,
-      title: "Lightning Performance",
-      description: "Ultra-fast payment processing with global infrastructure and 99.99% uptime guarantee.",
+      icon: <Zap className="w-8 h-8 text-yellow-500" />,
+      title: "Lightning Fast",
+      description: "Process payments in milliseconds with 99.99% uptime and global infrastructure.",
       details: [
-        "Sub-second transaction processing",
+        "Sub-second processing",
         "Global CDN network",
         "Auto-scaling infrastructure",
-        "Real-time monitoring"
+        "Zero downtime deployment"
       ],
-      gradient: "from-yellow-50 to-orange-50",
-      borderColor: "border-yellow-200"
+      color: "yellow"
     },
     {
-      icon: <Globe className="w-12 h-12 text-green-600" />,
-      title: "Global Coverage",
-      description: "Accept payments in 150+ currencies from customers worldwide with local payment methods.",
+      icon: <Globe className="w-8 h-8 text-green-500" />,
+      title: "Global Reach",
+      description: "Accept payments worldwide with support for 150+ currencies and local methods.",
       details: [
-        "150+ supported currencies",
+        "150+ currencies supported",
         "Local payment methods",
-        "Multi-language support",
-        "Regulatory compliance"
+        "Multi-language interface",
+        "Regional compliance"
       ],
-      gradient: "from-green-50 to-emerald-50",
-      borderColor: "border-green-200"
+      color: "green"
     },
     {
-      icon: <CreditCard className="w-12 h-12 text-indigo-600" />,
-      title: "Multiple Payment Methods",
-      description: "Support for all major payment methods including cards, wallets, and alternative payments.",
+      icon: <CreditCard className="w-8 h-8 text-purple-500" />,
+      title: "Universal Payments",
+      description: "Support all payment methods from traditional cards to modern digital wallets.",
       details: [
-        "Credit & debit cards",
-        "Digital wallets (Apple Pay, Google Pay)",
-        "Bank transfers",
-        "Buy now, pay later options"
+        "All major cards accepted",
+        "Apple Pay & Google Pay",
+        "Bank transfers & SEPA",
+        "Buy now, pay later"
       ],
-      gradient: "from-indigo-50 to-purple-50",
-      borderColor: "border-indigo-200"
+      color: "purple"
     },
     {
-      icon: <BarChart3 className="w-12 h-12 text-pink-600" />,
-      title: "Advanced Analytics",
-      description: "Comprehensive reporting and analytics to optimize your payment performance.",
+      icon: <BarChart3 className="w-8 h-8 text-pink-500" />,
+      title: "Smart Analytics",
+      description: "Advanced reporting and insights to optimize your payment performance.",
       details: [
         "Real-time dashboards",
-        "Custom reports",
-        "Revenue analytics",
-        "Customer insights"
+        "Revenue forecasting",
+        "Customer behavior analytics",
+        "Custom reporting tools"
       ],
-      gradient: "from-pink-50 to-rose-50",
-      borderColor: "border-pink-200"
+      color: "pink"
     },
     {
-      icon: <Code className="w-12 h-12 text-cyan-600" />,
-      title: "Developer-Friendly",
-      description: "Easy integration with RESTful APIs, webhooks, and comprehensive documentation.",
+      icon: <Code className="w-8 h-8 text-indigo-500" />,
+      title: "Developer First",
+      description: "Simple APIs, comprehensive docs, and powerful SDKs for seamless integration.",
       details: [
-        "RESTful APIs",
+        "RESTful API design",
         "Webhook notifications",
-        "SDK libraries",
+        "Multiple SDK libraries",
         "Sandbox environment"
       ],
-      gradient: "from-cyan-50 to-blue-50",
-      borderColor: "border-cyan-200"
+      color: "indigo"
     }
   ];
 
   const additionalFeatures = [
     {
-      icon: <Smartphone className="w-8 h-8 text-purple-600" />,
+      icon: <Smartphone className="w-6 h-6" />,
       title: "Mobile Optimized",
-      description: "Responsive checkout flows optimized for mobile devices"
+      description: "Perfect checkout experience across all devices"
     },
     {
-      icon: <Users className="w-8 h-8 text-purple-600" />,
-      title: "Team Management",
-      description: "Collaborate with your team using role-based access controls"
+      icon: <Users className="w-6 h-6" />,
+      title: "Team Collaboration",
+      description: "Role-based access and team management tools"
     },
     {
-      icon: <Monitor className="w-8 h-8 text-purple-600" />,
-      title: "Real-time Reporting",
-      description: "Monitor your payments with live dashboards and alerts"
+      icon: <Monitor className="w-6 h-6" />,
+      title: "Live Monitoring",
+      description: "Real-time alerts and system health monitoring"
     },
     {
-      icon: <Lock className="w-8 h-8 text-purple-600" />,
+      icon: <Lock className="w-6 h-6" />,
       title: "Data Protection",
-      description: "GDPR compliant with advanced data protection measures"
+      description: "Advanced encryption and privacy compliance"
     },
     {
-      icon: <Clock className="w-8 h-8 text-purple-600" />,
-      title: "24/7 Monitoring",
-      description: "Round-the-clock system monitoring and support"
+      icon: <Clock className="w-6 h-6" />,
+      title: "24/7 Support",
+      description: "Round-the-clock expert assistance"
     },
     {
-      icon: <Star className="w-8 h-8 text-purple-600" />,
-      title: "Premium Support",
-      description: "Priority support with dedicated account managers"
-    },
-    {
-      icon: <Database className="w-8 h-8 text-purple-600" />,
-      title: "Data Analytics",
-      description: "Advanced analytics and business intelligence tools"
-    },
-    {
-      icon: <Settings className="w-8 h-8 text-purple-600" />,
-      title: "Custom Integration",
-      description: "Tailored solutions for enterprise requirements"
+      icon: <Star className="w-6 h-6" />,
+      title: "Premium Features",
+      description: "Advanced tools for enterprise customers"
     }
   ];
 
+  const getColorClasses = (color: string) => {
+    const colors = {
+      blue: "bg-blue-50 border-blue-200 hover:border-blue-300",
+      yellow: "bg-amber-50 border-amber-200 hover:border-amber-300",
+      green: "bg-emerald-50 border-emerald-200 hover:border-emerald-300",
+      purple: "bg-purple-50 border-purple-200 hover:border-purple-300",
+      pink: "bg-pink-50 border-pink-200 hover:border-pink-300",
+      indigo: "bg-indigo-50 border-indigo-200 hover:border-indigo-300"
+    };
+    return colors[color as keyof typeof colors] || colors.blue;
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Header */}
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Powerful Features for
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent block">
-              Modern Payments
+      {/* Hero Section with Dark Theme */}
+      <section className="bg-gray-900 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 rounded-full border border-blue-400/30 mb-8">
+            <Star className="w-4 h-4 mr-2 text-blue-400" />
+            <span className="text-blue-100 text-sm font-medium">Trusted by 10,000+ businesses</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+            Next-Gen Payment
+            <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Infrastructure
             </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Everything you need to accept payments online, manage subscriptions, and grow your business globally.
+          
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Built for developers, loved by businesses. Experience the future of payments with our lightning-fast, secure, and globally scalable platform.
           </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 h-auto text-lg">
+              <Play className="w-5 h-5 mr-2" />
+              Watch Demo
+            </Button>
+            <Button variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-4 h-auto text-lg">
+              Explore Features
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Main Features Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* Main Features Grid - Light Theme */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Powerful Features
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to accept payments, manage transactions, and scale your business globally.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mainFeatures.map((feature, index) => (
-              <Card key={index} className={`hover:shadow-xl transition-all duration-300 ${feature.borderColor} bg-gradient-to-r ${feature.gradient} border-2 hover:scale-105`}>
+              <Card key={index} className={`hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 ${getColorClasses(feature.color)} group`}>
                 <CardContent className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 p-3 rounded-xl bg-white shadow-lg">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       {feature.icon}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-700 mb-4 font-medium">
-                        {feature.description}
-                      </p>
-                      <ul className="space-y-2">
-                        {feature.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-center">
-                            <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
-                            <span className="text-sm text-gray-700 font-medium">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
                   </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {feature.description}
+                  </p>
+                  
+                  <ul className="space-y-3">
+                    {feature.details.map((detail, idx) => (
+                      <li key={idx} className="flex items-center">
+                        <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700 font-medium">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -183,137 +209,97 @@ const Features = () => {
         </div>
       </section>
 
-      {/* Additional Features - 8 cards in 2 rows */}
-      <section className="py-20 bg-white">
+      {/* Additional Features - White Background */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Everything You Need
+              Complete Solution
             </h2>
             <p className="text-xl text-gray-600">
-              Additional features to power your payment experience
+              Additional tools to enhance your payment experience
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {additionalFeatures.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-purple-100 hover:border-purple-300">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex justify-center">
-                    <div className="p-3 rounded-full bg-purple-100">
-                      {feature.icon}
-                    </div>
+              <div key={index} className="group p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 hover:shadow-lg border border-gray-100">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-white">
+                    {feature.icon}
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+      <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Experience These Features?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Transform Your Payments?
           </h2>
-          <p className="text-xl mb-8 text-purple-100">
-            Start your free trial today and see how PayGate can transform your payment processing.
+          <p className="text-xl mb-10 text-blue-100">
+            Join thousands of businesses already using PayGate to power their payment infrastructure.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 h-auto text-lg font-semibold">
               Start Free Trial
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3">
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600 px-10 py-4 h-auto text-lg font-semibold">
               View Documentation
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Enhanced Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-20">
+      {/* Minimal Footer */}
+      <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
-            <div className="md:col-span-2">
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
-                PayGate
-              </h3>
-              <p className="text-gray-400 mb-6 text-lg leading-relaxed">
-                The most powerful payment gateway for modern businesses. Accept payments everywhere, instantly.
-              </p>
-              <div className="flex items-center space-x-4">
-                <div className="flex space-x-3">
-                  <div className="bg-purple-600 p-2 rounded-lg hover:bg-purple-700 transition-colors cursor-pointer">
-                    <Users className="w-5 h-5" />
-                  </div>
-                  <div className="bg-blue-600 p-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
-                    <Globe className="w-5 h-5" />
-                  </div>
-                  <div className="bg-pink-600 p-2 rounded-lg hover:bg-pink-700 transition-colors cursor-pointer">
-                    <Star className="w-5 h-5" />
-                  </div>
-                  <div className="bg-blue-700 p-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
-                    <Shield className="w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
             <div>
-              <h4 className="font-bold mb-6 text-lg">Product</h4>
+              <h4 className="font-semibold mb-4 text-lg">Product</h4>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">API Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Integrations</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Security</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-bold mb-6 text-lg">Company</h4>
+              <h4 className="font-semibold mb-4 text-lg">Company</h4>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Press</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Partners</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-bold mb-6 text-lg">Support</h4>
+              <h4 className="font-semibold mb-4 text-lg">Support</h4>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Developer Docs</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Status Page</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Community</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-lg">Best Hostings</h4>
+              <h4 className="font-semibold mb-4 text-lg">Legal</h4>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Bluehost</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">HostGator</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">SiteGround</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">GoDaddy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Hostinger</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Cookies</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 mb-4 md:mb-0">&copy; 2024 PayGate. All rights reserved.</p>
-            <div className="flex items-center space-x-6 text-gray-400 text-sm">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Cookies</a>
-            </div>
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="text-gray-400">&copy; 2024 PayGate. All rights reserved.</p>
           </div>
         </div>
       </footer>
