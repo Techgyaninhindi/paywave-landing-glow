@@ -55,12 +55,16 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button variant="outline" className="ml-4">
-                Sign In
-              </Button>
-              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
-                Get Started
-              </Button>
+              <Link to="/login">
+                <Button variant="outline" className="ml-4">
+                  Sign In
+                </Button>
+              </Link>
+              <Link to="/signup">
+                <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -124,19 +128,21 @@ const Navigation = () => {
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-6 border-t border-gray-200">
-                <Button 
-                  variant="outline" 
-                  className="w-full justify-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Sign In
-                </Button>
-                <Button 
-                  className="w-full justify-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Get Started
-                </Button>
+                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-center"
+                  >
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
+                  <Button 
+                    className="w-full justify-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                  >
+                    Get Started
+                  </Button>
+                </Link>
               </div>
 
               {/* Additional Info */}

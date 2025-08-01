@@ -1,5 +1,6 @@
 import { ArrowRight, Shield, CreditCard, Zap, Globe, Users, CheckCircle, Star, Menu, X, TrendingUp, Lock, Clock, BarChart, Smartphone, Headphones, Award, DollarSign, Target, Layers, RefreshCw, Settings, Wifi, Database } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
@@ -173,10 +174,12 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-10 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <Link to="/signup">
+                <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-10 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
               <Button variant="outline" size="lg" className="px-10 py-4 text-lg font-semibold border-2 hover:bg-gray-50 transition-all duration-300">
                 Watch Demo
               </Button>
