@@ -515,10 +515,12 @@ const Index = () => {
             Join thousands of businesses already using PayGate to process payments seamlessly and grow globally.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-12 py-4 text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link to="/signup">
+              <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-12 py-4 text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                Start Free Trial
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
             <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-12 py-4 text-lg font-bold transition-all duration-300">
               Schedule Demo
             </Button>
